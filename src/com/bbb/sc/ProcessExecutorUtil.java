@@ -18,12 +18,20 @@ import org.apache.commons.exec.PumpStreamHandler;
 
 /**
  * Utility class for running external processes
- * @author bbalazs
- *
+ * Uses Apache Exec
  */
 class ProcessExecutorUtil {
     
-    public List<String> executeCommand(String...command) throws ExecuteException, IOException {
+    /**
+     * Running an external command getting the system output from the process.
+     * E.g.: List<String> ouput = executeCommand("cmd", "/c", "dir");
+     * Best practice is not to use spaces between the arguments, instead give each argument separately.
+     * @param command - the command you want to run
+     * @return - a list of Strings with the output
+     * @throws ExecuteException - if the exit value wasn't 0 
+     * @throws IOException - if the command couldn't be found
+     */
+    public List<String> executeCommand(String... command) throws ExecuteException, IOException {
         List<String> cmdList = new ArrayList<String>();
         Collections.addAll(cmdList, command);
         return executeCommand(cmdList);
@@ -31,11 +39,12 @@ class ProcessExecutorUtil {
 
     
     /**
-     * 
-     * @param command
-     * @return
-     * @throws ExecuteException
-     * @throws IOException
+     * Running an external command getting the system output from the process.
+     * Best practice is not to use spaces between the arguments, instead give each argument separately.
+     * @param command - the command you want to run
+     * @return - a list of Strings with the output
+     * @throws ExecuteException - if the exit value wasn't 0 
+     * @throws IOException - if the command couldn't be found
      */
     public List<String> executeCommand(List<String> command) throws ExecuteException, IOException {
         checkNotNull(command);
@@ -53,6 +62,7 @@ class ProcessExecutorUtil {
         return result;
     }
     
+    
     private CommandLine parseCommandLine(List<String> command) {
         checkNotNull(command);
         checkArgument(!command.isEmpty());
@@ -65,6 +75,7 @@ class ProcessExecutorUtil {
         
         return cmdLine;
     }
+    
     
     private BufferedReader executeAndReturnOutput(CommandLine cmdLine) throws ExecuteException, IOException {
         checkNotNull(cmdLine);
