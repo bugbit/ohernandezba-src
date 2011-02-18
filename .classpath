@@ -2,5 +2,15 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="lib/commons-exec-1.1/commons-exec-1.1.jar" sourcepath="lib/commons-exec-1.1/commons-exec-1.1-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/java-sc/lib/commons-exec-1.1/commons-exec-1.1-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/guava-r08/guava-r08.jar" sourcepath="lib/guava-r08/guava-src-r08.zip">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/E:/Code/entuity_main/java-sc/lib/guava-r08/javadoc/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
